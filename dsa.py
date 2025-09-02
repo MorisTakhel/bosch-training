@@ -9,11 +9,10 @@ class Stack:
         self.top += 1
     
     def pop(self):
-        
         temp = self.values[self.top]
 
         del self.values[-1]
-        self.top -= 0
+        self.top -= 1
 
         return temp
     
