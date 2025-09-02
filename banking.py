@@ -32,9 +32,10 @@ class SavingAccount(BankAccount):
 class CurrentAccount(BankAccount):
 	def __init__(self, name, accNo, bal, overdraftLimit = 1000):
 		super().__init__(name, accNo, bal)
+		self.overdraftLimit = overdraftLimit
 
 	def checkBalance(self):
-		print(f"You have {self.balance} in your account, and {overdraftLimit} as overdraft limit.")
+		print(f"You have {self.balance} in your account, and {self.overdraftLimit} as overdraft limit.")
 
 	def withdraw(self, withdraw):
 		if self.balance + self.overdraftLimit > withdraw:
