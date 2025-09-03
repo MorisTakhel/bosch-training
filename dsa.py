@@ -1,5 +1,5 @@
 
-class Stack:
+class StackList:
     def __init__(self):
         self.values = list()
         self.top = 0
@@ -24,3 +24,49 @@ class Stack:
 
     def size(self):
         return top + 1
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class StackLL:
+    def __init__(self):
+        self.size = 0
+        self.head = None
+
+    def push(self, value):
+        newNode = Node(value)
+
+        if self.head:
+            newNode.next = self.head
+        
+        self.head = newNode
+        self.size += 1
+    
+    def pop(self):
+        if self.isEmpty():
+            return "Stack is Empty"
+        
+        poppedNode = self.head
+        self.head = self.head.next
+        self.size -= 1
+        return poppedNode.value
+    
+    def peek(self):
+        if self.isEmpty():
+            return "Stack is Empty"
+        return self.head.value
+    
+    def isEmpty(self):
+        return self.size == 0
+    
+    def stackSize(self):
+        return self.size
+
+    def traverseAndPrint(self):
+        currentNode = self.head
+        while currentNode:
+            print(currentNode.value, end =" -> ")
+            currentNode = currentNode.next
+        print()
